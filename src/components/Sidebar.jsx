@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "../styles";
 
@@ -58,56 +58,64 @@ const menuItemsData = [
 ];
 
 function Sidebar() {
-  const [activeItem, setActiveItem] = useState(menuItemsData[0].id);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleMenuItemClick = (id, route) => {
-    setActiveItem(id);
+  const handleMenuItemClick = (route) => {
     navigate(route);
   };
 
   return (
     <aside className="flex flex-col items-center px-6 py-8 bg-white rounded-xl min-w-[240px] w-[304px] max-md:px-5">
       <div className="flex flex-col items-center">
-        <h2 className="text-xl font-medium leading-7 text-neutral-900">Daniil Filatov</h2>
-        <p className="mt-1 text-sm leading-loose text-center text-neutral-500">daniil.filatov@newlogic.cz</p>
+        <h2 style={styles.text3Xl}>
+          Daniil Filatov
+        </h2>
+        <p style={styles.textSm} className="mt-[3px] text-gray-400">
+          daniil.filatov@newlogic.cz
+        </p>
       </div>
-      <nav className="flex flex-col self-stretch mt-6 w-full text-base font-semibold text-neutral-900">
+      <nav className="flex flex-col mt-6 w-full">
         <ul className="flex flex-col w-full">
           {menuItemsData.map((item) => (
             <li key={item.id}>
               <button
-                className={`flex flex-col justify-center p-3 mt-3 w-full rounded-lg ${
-                  activeItem === item.id
-                    ? "bg-blue-600 text-white"
+                className={`flex items-center p-3 mt-3 w-full rounded-lg ${
+                  location.pathname === item.route
+                    ? "bg-blue-500 text-white"
                     : "text-neutral-900"
                 }`}
-                onClick={() => handleMenuItemClick(item.id, item.route)}
+                onClick={() => handleMenuItemClick(item.route)}
+                style={
+                  location.pathname === item.route ? styles.textXl : styles.textLg
+                } 
               >
-                <div className="flex gap-10 justify-between items-center w-full">
-                  <div className="flex gap-2 items-center self-stretch my-auto">
-                    <img
-                      src={item.icon}
-                      alt=""
-                      className={`object-contain shrink-0 self-stretch my-auto w-5 aspect-square ${
-                        activeItem === item.id ? "filter-white" : ""
-                      }`}
-                    />
-                    <span className="self-stretch my-auto">{item.label}</span>
-                  </div>
+                <div className="flex gap-2 items-center w-full">
                   <img
-                    src={ArrowRight}
-                    alt="Arrow to the right"
-                    className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
+                    src={item.icon}
+                    alt={item.label}
+                    className="w-5 aspect-square"
+                    style={
+                      location.pathname === item.route ? styles.filterWhite : {}
+                    }
                   />
+                  <span style={styles.uiBtnDefault}>{item.label}</span>
                 </div>
+                <img
+                  src={ArrowRight}
+                  alt="Arrow to the right"
+                  className="w-5 aspect-square"
+                  style={
+                    location.pathname === item.route ? styles.filterWhite : {}
+                  }
+                />
               </button>
             </li>
           ))}
         </ul>
       </nav>
-      <button className="flex flex-col justify-center p-3 mt-6 w-full text-base text-red-500 rounded-lg bg-red-600 bg-opacity-10 max-w-[256px]">
-        <span className="gap-2 self-stretch my-auto">Odhlásit se</span>
+      <button className="flex justify-center p-3 mt-6 w-full text-base text-red-500 rounded-lg bg-red-600 bg-opacity-10 max-w-[256px]">
+        <span>Odhlásit se</span>
       </button>
     </aside>
   );
