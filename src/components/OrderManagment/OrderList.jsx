@@ -30,7 +30,7 @@ const orders = [
 
 const OrderList = () => {
   return (
-    <section className="flex flex-col flex-1 min-w-[240px] max-md:max-w-full">
+    <section className="flex flex-col flex-1 min-w-[240px] ">
       {orders.map((order, index) => (
         <OrderCard
           key={order.id}
