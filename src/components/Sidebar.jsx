@@ -29,25 +29,25 @@ const menuItemsData = [
     id: 3,
     icon: HeartIcon,
     label: "Seznam přání",
-    route: "/order-managment",
+    route: "/order-management",
   },
   {
     id: 4,
     icon: CircleStackIcon,
     label: "Věrnostní program",
-    route: "/order-managment",
+    route: "/order-management",
   },
   {
     id: 5,
     icon: TagIcon,
     label: "Slevové kódy",
-    route: "/order-managment",
+    route: "/order-management",
   },
   {
     id: 6,
     icon: MagnifyingGlassIcon,
     label: "Hlídané zboží",
-    route: "/order-managment",
+    route: "/order-management",
   },
   {
     id: 7,
@@ -68,9 +68,7 @@ function Sidebar() {
   return (
     <aside className="flex flex-col items-center px-6 py-8 bg-white rounded-xl min-w-[240px] w-[304px] max-md:px-5">
       <div className="flex flex-col items-center">
-        <h2 style={styles.text3Xl}>
-          Daniil Filatov
-        </h2>
+        <h2 style={styles.text3Xl}>Daniil Filatov</h2>
         <p style={styles.textSm} className="mt-[3px] text-gray-400">
           daniil.filatov@newlogic.cz
         </p>
@@ -87,8 +85,10 @@ function Sidebar() {
                 }`}
                 onClick={() => handleMenuItemClick(item.route)}
                 style={
-                  location.pathname === item.route ? styles.textXl : styles.textLg
-                } 
+                  location.pathname === item.route
+                    ? styles.textXl
+                    : styles.textLg
+                }
               >
                 <div className="flex gap-2 items-center w-full">
                   <img
