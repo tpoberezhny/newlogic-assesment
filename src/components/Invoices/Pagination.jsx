@@ -1,14 +1,15 @@
 import React from "react";
 import styles from "../../styles";
+import "./Pagination.css";
 
 function Pagination() {
   return (
     <nav className="flex mt-8 w-full items-center" aria-label="Pagination">
       <div className="flex justify-center w-full">
         <button
-          className="px-6 py-3 ml-[180px] bg-blue-500 text-white rounded-lg"
-          style={styles.textBase}
+          className="button-primary"
           aria-label="Načíst další"
+          style={styles.buttonPrimary}
         >
           Načíst další
         </button>
@@ -16,7 +17,7 @@ function Pagination() {
       <ul className="flex gap-2 items-center ml-auto">
         <li>
           <a
-            href="#"
+            href="/"
             aria-current="page"
             className="text-blue-500"
             style={styles.paginationEl}
@@ -25,12 +26,12 @@ function Pagination() {
           </a>
         </li>
         <li>
-          <a href="#" style={styles.paginationEl}>
+          <a href="/" style={styles.paginationEl}>
             2
           </a>
         </li>
         <li>
-          <a href="#" style={styles.paginationEl}>
+          <a href="/" style={styles.paginationEl}>
             3
           </a>
         </li>
@@ -40,7 +41,7 @@ function Pagination() {
           </span>
         </li>
         <li>
-          <a href="#" style={styles.paginationEl}>
+          <a href="/" style={styles.paginationEl}>
             56
           </a>
         </li>

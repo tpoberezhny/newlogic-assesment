@@ -65,17 +65,17 @@ const styles = {
   uiBtnDefault: {
     fontSize: "1rem",
     fontWeight: 600,
-    lineHeight: "1,5rem"
+    lineHeight: "1,5rem",
   },
   heading: {
     fontSize: "2rem",
     fontWeight: 600,
-    lineHeight: "2,5rem"
+    lineHeight: "2,5rem",
   },
   smTitle: {
     fontSize: "0.9rem",
     fontWeight: 600,
-    lineHeight: "1.375rem"
+    lineHeight: "1.375rem",
   },
   paginationEl: {
     fontSize: "1rem",
@@ -87,7 +87,15 @@ const styles = {
     width: "2rem",
     height: "2rem",
     backgroundColor: "#ffffff",
-    borderRadius: "0.25rem"
-  }
+    borderRadius: "0.25rem",
+  },
+  buttonPrimary: {
+    padding: "12px 24px",
+    marginLeft: "185px",
+    color: "#ffffff",
+    borderRadius: "0.5rem",
+    transition: "background-color 0.3s ease", // Smooth hover transition
+    cursor: "pointer",
+  },
 };
 export default styles;
