@@ -1,0 +1,33 @@
+.field-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 16px 1px 4px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+.label-text {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #6b7280;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+  color: #000;
+}
+
+.field-container.focused .label-text,
+.input-field:not(:placeholder-shown) + .label-text {
+  top: 10px;
+  left: 8px;
+  font-size: 0.75rem;
+  color: #1f2937; 
+}
